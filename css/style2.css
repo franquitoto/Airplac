@@ -1,0 +1,20 @@
+.bg-perzonalizado{
+	background: #1197D5;
+}
+article img{
+	text-align: right;
+}
+#wsp-logo{
+	position: fixed;
+	bottom: 50px;
+	right: 30px;
+}
+#bg-perzonalizado{
+	background: #1197D5;
+}
+.productos3D__tittle--whiteSmoke{
+	color:whitesmoke ;
+}
+.productosRus__tittle--bg-perzonalizado{
+	color: #1197D5;
+}
