@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
 .bg-perzonalizado{
 	background: #1197D5;
 }
@@ -17,4 +19,11 @@ article img{
 }
 .productosRus__tittle--bg-perzonalizado{
 	color: #1197D5;
+}
+.TittleBlack{
+	color: black;
+	text-decoration: none;
+}
+h1, h2, h3, h4, p, a{
+	font-family: 'Roboto Condensed', sans-serif;
 }
