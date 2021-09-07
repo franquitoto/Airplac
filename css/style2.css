@@ -24,7 +24,7 @@ article img{
 	color: black;
 	text-decoration: none;
 }
-h1, h2, h3, h4, p, a{
+h1, h2, h3, h4, p, a, li{
 	font-family: 'Roboto Condensed', sans-serif;
 }
 /* Start: Google Maps Responsive */
