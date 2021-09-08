@@ -42,3 +42,12 @@ h1, h2, h3, h4, p, a, li{
     position:absolute;
 }
 /* End: Google Maps Responsive */
+nav ol li a{
+	color: #1197D5;
+}
+article nav ol li a{
+	color: #fff;
+}
+div ul li a{
+	color: #fff;
+}
