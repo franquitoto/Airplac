@@ -38,10 +38,10 @@
 		        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 		            <li class="nav-item">
-		              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+		              <a class="nav-link active" id="nav-link" aria-current="page" href="index.html">Inicio</a>
 		            </li>
 		            <li class="nav-item dropdown">
-		              <a class="nav-link dropdown-toggle" href="productos.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		              <a class="nav-link dropdown-toggle" id="nav-link" href="productos.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 		                Productos
 		              </a>
 		              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -52,13 +52,13 @@
 		              </ul>
 		            </li>
 		            <li class="nav-item">
-		              <a class="nav-link" href="nosotros.html">Nosotros</a>
+		              <a class="nav-link" id="nav-link" href="nosotros.html">Nosotros</a>
 		            </li>
 		            <li class="nav-item">
-		              <a class="nav-link" href="contacto.html">Contactanos</a>
+		              <a class="nav-link" id="nav-link" href="contacto.html">Contactanos</a>
 		            </li>
 		            <li class="nav-item">
-		              <a class="nav-link" href="promociones2.html">Promociones</a>
+		              <a class="nav-link" id="nav-link" href="promociones2.html">Promociones</a>
 		            </li>
 		          </ul>
 		        </div>
@@ -66,7 +66,6 @@
 		    </nav>
     		<!-- Cierra Nav -->
 		</header>
-
 		<!-- Redes sociales -->
 		<section id="contacto" class="bg-light text-white py-3">
 			<h4 class="text-center TittleBlack">NUESTRAS REDES SOCIALES</h4>
@@ -81,13 +80,13 @@
 					<aritcle class="col-lg-4 col-md-6 py-3 wow animate__backInRight">
 						<h3 class="text-center TittleBlack">INSTAGRAM</h3>
 						<a href="https://instagram.com/airplaczonaoeste?utm_medium=copy_link">
-							<img src="img/insta.jpg" alt="logo de Facebook" class="w-60 h-60 rounded-circle d-block mx-auto">
+							<img src="img/insta.jpg" alt="logo de instagram" class="w-60 h-60 rounded-circle d-block mx-auto">
 						</a>
 					</aritcle>
 					<aritcle class="col-lg-4 col-md-6 py-3 wow animate__backInRight">
 						<h3 class="text-center TittleBlack">WHATSAPP</h3>
 						<a href="https://wa.me/5491128709257">
-							<img src="img/wsp.jpg" alt="logo de Facebook" class="w-60 h-60 rounded-circle d-block mx-auto">
+							<img src="img/wsp.jpg" alt="logo de whatsapp" class="w-60 h-60 rounded-circle d-block mx-auto">
 						</a>
 					</aritcle>
 				</div>
@@ -110,16 +109,16 @@
 							</ul>
 						</p>
 						<p>Pueden tambien encontrarnos en nuestro local de atencion al publico.</p>
-						
 					</article>
 					<article class="col-lg-6 col-md-6 py-3">
 						<div class="map-responsive">
 							<iframe class="d-block mx-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.594622515694!2d-58.56318798423466!3d-34.69017926958612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc618c70701af%3A0x4910312ef44d955d!2sDerqui%203860%2C%20B1754CIN%20San%20Justo%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1630861566355!5m2!1ses-419!2sar" width="800" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 						</div>
 					</article>
+				</div>
 			</div>
 		</section>
-		<!-- Nuestra fabrica -->
+		<!-- Fin de nuestra fabrica -->
 		<!-- Nuestro local -->
 		<section class="bg-secondary text-white py-3">
 			<h4 class="text-center">NUESTRO LOCAL</h4>
@@ -143,31 +142,39 @@
 							</p>
 						</div>
 					</article>
+				</div>	
 			</div>
 		</section>
 		<!-- Fin de nuestro local -->
-
 		<!-- Footer -->
-       <footer class="footer bg-perzonalizado">
-         <div class="container-fluid">
-           <div class="row">
-             <article class=" footer__article col-lg-4 col-md-6">
-             </article>
-             <article class="col-lg-4 col-md-6">
-             	<a href="index.html">
-                	<img src="img/logo2.jpg" alt="Logo perzonalizado de airplac" class="py-4 d-block mx-auto">
-             	</a>
-             </article>
-             <article class="col-lg-3">
-               <a href="https://wa.me/5491128709257">
-                 <img src="img/whatsapp-logo.png" id="wsp-logo">
-               </a>
-             </article>    
-           </div>
-         </div>
-       </footer>
-      <!-- Termina el Footer -->
-
+    <footer class="footer bg-perzonalizado">
+      <div class="container-fluid py-2">
+        <div class="row">
+          <article class=" footer__article col-lg-4 col-md-6">
+           <nav style="--bs-breadcrumb-divider:'>';" aria-label="breadcrumb">
+             <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+               <li class="breadcrumb-item"><a href="productos.html">Productos</a></li>
+               <li class="breadcrumb-item"><a href="nosotros.html">Nosotros</a></li>
+               <li class="breadcrumb-item"><a href="contacto.html">Contacto</a></li>
+               <li class="breadcrumb-item active ria-current="><a href="promociones2.html">Promociones</a></li>
+             </ol>
+           </nav>
+          </article>
+          <article class="col-lg-4 col-md-6">
+           <a href="index.html">
+               <img src="img/logo2.jpg" alt="Logo perzonalizado de airplac" class="py-4 d-block mx-auto">
+           </a>
+          </article>
+          <article class="col-lg-3">
+            <a href="https://wa.me/5491128709257">
+              <img src="img/whatsapp-logo.png" id="wsp-logo">
+            </a>
+          </article>    
+        </div>
+      </div>
+    </footer>
+    <!-- Termina el Footer -->
 		<!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

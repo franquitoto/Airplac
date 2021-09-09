@@ -33,10 +33,10 @@
 		        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 		            <li class="nav-item">
-		              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+		              <a class="nav-link active" id="nav-link" aria-current="page" href="index.html">Inicio</a>
 		            </li>
 		            <li class="nav-item dropdown">
-		              <a class="nav-link dropdown-toggle" href="productos.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		              <a class="nav-link dropdown-toggle" id="nav-link"  href="productos.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 		                Productos
 		              </a>
 		              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -47,13 +47,13 @@
 		              </ul>
 		            </li>
 		            <li class="nav-item">
-		              <a class="nav-link" href="nosotros.html">Nosotros</a>
+		              <a class="nav-link" id="nav-link"  href="nosotros.html">Nosotros</a>
 		            </li>
 		            <li class="nav-item">
-		              <a class="nav-link" href="contacto.html">Contactanos</a>
+		              <a class="nav-link" id="nav-link"  href="contacto.html">Contactanos</a>
 		            </li>
 		            <li class="nav-item">
-		              <a class="nav-link" href="promociones2.html">Promociones</a>
+		              <a class="nav-link" id="nav-link"  href="promociones2.html">Promociones</a>
 		            </li>
 		          </ul>
 		        </div>
@@ -66,7 +66,7 @@
 		
 		<section class="productos3D text-white bg-dark">
 			<div class="container">
-				<div class="row" id="mod-3D">
+				<div class="row pt-3" id="mod-3D">
 					<h3 class="productos3D__tittle--whiteSmoke text-center animate__slideInLeft">MODELOS 3D</h3>
 					<aritcle class="col-lg-4 col-md-6 py-3">
 						<h3 class="productos3D__tittle--whiteSmoke text-center">BURBUJA</h3>
@@ -78,7 +78,7 @@
 						<img src="img/06-TECNO.jpg" alt="Modelo 3D de placas antihumedad tecno" class="w-100 h-75">
 						<button id="bg-perzonalizado" type="button" class="btn btn-info w-100 mt-3">Comprar</button>
 					</aritcle>
-					<aritcle class="col-lg-4 py-3 col-md-12">
+					<aritcle class="col-lg-4 col-md-6 py-3">
 						<h3 class="productos3D__tittle--whiteSmoke text-center">FLOR</h3>
 						<img src="img/05-FLOR.jpg" alt="Modelo 3D de placas antihumedad flor" class="w-100 h-75">
 						<button id="bg-perzonalizado" type="button" class="btn btn-info w-100 mt-3">Comprar</button>
@@ -107,7 +107,7 @@
 						<button id="bg-perzonalizado" type="button" class="btn btn-info w-100 mt-3">Comprar</button>
 					</aritcle>
 				</div>
-				<div class="row" id="prod-aducionales">
+				<div class="row py-3" id="prod-aducionales">
 					<h3 class=" text-center">PRODUCTOS ADICIONALES</h3>
 					<aritcle class="col-lg-3 py-3 col-md-6">
 						<h3 class=" text-center">PEGAMENTO SIKA</h3>
@@ -136,14 +136,23 @@
 
 		<!-- Footer -->
        <footer class="footer bg-perzonalizado">
-         <div class="container-fluid">
+         <div class="container-fluid py-2">
            <div class="row">
              <article class=" footer__article col-lg-4 col-md-6">
+              <nav style="--bs-breadcrumb-divider:'>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                  <li class="breadcrumb-item"><a href="productos.html">Productos</a></li>
+                  <li class="breadcrumb-item"><a href="nosotros.html">Nosotros</a></li>
+                  <li class="breadcrumb-item"><a href="contacto.html">Contacto</a></li>
+                  <li class="breadcrumb-item active ria-current="><a href="promociones2.html">Promociones</a></li>
+                </ol>
+              </nav>
              </article>
              <article class="col-lg-4 col-md-6">
-             	<a href="index.html">
-                	<img src="img/logo2.jpg" alt="Logo perzonalizado de airplac" class="py-4 d-block mx-auto">
-             	</a>
+              <a href="index.html">
+                  <img src="img/logo2.jpg" alt="Logo perzonalizado de airplac" class="py-4 d-block mx-auto">
+              </a>
              </article>
              <article class="col-lg-3">
                <a href="https://wa.me/5491128709257">

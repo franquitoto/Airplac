@@ -51,3 +51,9 @@ article nav ol li a{
 div ul li a{
 	color: #fff;
 }
+#nav-link{
+	color: #fff;
+}
+#nav-link :hover {
+	color: red;
+}
