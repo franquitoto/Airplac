@@ -47,10 +47,6 @@ const imprimirProducto = () => {
 }
 
 const ComprarProducto = (index) =>{
-    if (document.getElementById("cant").value == 0 ) {
-        alert("Antes de comprar debe indicar una cantidad");
-    }
-    else{
         let carrito;
         if (localStorage.getItem("carrito") == null ) {
             carrito = []
@@ -60,7 +56,7 @@ const ComprarProducto = (index) =>{
         }
         carrito.push(productosCargados[index])
         localStorage.setItem("carrito", JSON.stringify(carrito))
-    }
+    
     
 }
 

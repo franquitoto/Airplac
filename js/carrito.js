@@ -3,7 +3,6 @@ console.log(carrito);
 
 const imprimirProducto = () => {
     carrito.forEach(obj =>{
-        
         document.getElementById("carrito").innerHTML+=`
         <aritcle class="col-lg-3 py-3 col-md-6">
         <h3 class="productos3D__tittle--whiteSmoke text-center">${obj.nombre}</h3>
