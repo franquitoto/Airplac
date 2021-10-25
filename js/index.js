@@ -69,6 +69,8 @@ const ComprarProducto = (index) =>{
         localStorage.setItem("carrito", JSON.stringify(carrito))
         document.getElementById(`miForm${index}`).reset();
         alert(`Acabas de agregar al carrito ${metros} de ${productosCargados[index].nombre}`)
+
+        // si sigue esto no se actualizo un choto
     }
         
     
