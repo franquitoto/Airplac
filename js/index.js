@@ -25,7 +25,7 @@ var producto = new Productos("LORETO","mod-rus",850,0,"metros")
 productosCargados.push(producto)
 var producto = new Productos("PEGAMENTO ZIKA","prod-adicionales",700,0,"bolsa/bolsas")
 productosCargados.push(producto)
-var producto = new Productos("MASILLA","prod-adicionales",700,0,"tacho/tachos")
+var producto = new Productos("MASILLA ANCLA","prod-adicionales",700,0,"tacho/tachos")
 productosCargados.push(producto)
 var producto = new Productos("YESO SELENITA","prod-adicionales",700,0,"bolsa/bolsas")
 productosCargados.push(producto)
@@ -43,7 +43,7 @@ const imprimirProducto = () => {
         <div class="w-100">
             <form action="" id="miForm${index}">
                 <input type="number" placeholder="Cantidad" class="w-100 mt-3" id="cant${index}">
-                <button id="bg-perzonalizado" type="button" class="btn btn-info w-100 mt-1" onclick="ComprarProducto(${index})">Comprar</button>
+                <button id="bg-perzonalizado" type="button" class="btn btn-info w-100 mt-1 " onclick="ComprarProducto(${index})">Comprar</button>
             </form>
         </div>
         `;
@@ -68,15 +68,16 @@ const ComprarProducto = (index) =>{
         carrito.push(productosCargados[index])
         localStorage.setItem("carrito", JSON.stringify(carrito))
         document.getElementById(`miForm${index}`).reset();
-        alert(`Acabas de agregar al carrito ${metros} de ${productosCargados[index].nombre}`)
+        alert(`Acabas de agregar al carrito ${metros} ${productosCargados[index].unidad} de ${productosCargados[index].nombre}`)
 
-        // si sigue esto no se actualizo un choto
+        
     }
         
     
     
 }
 imprimirProducto()
+console.log("hola hola");
 
 
 
