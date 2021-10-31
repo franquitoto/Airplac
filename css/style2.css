@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap');
 
 .bg-perzonalizado{
-	background: #1197D5;
+	background: #1197D5 !important;
 }
 article img{
 	text-align: right;

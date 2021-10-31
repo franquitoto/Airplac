@@ -68,11 +68,8 @@ const ComprarProducto = (index) =>{
         carrito.push(productosCargados[index])
         localStorage.setItem("carrito", JSON.stringify(carrito))
         document.getElementById(`miForm${index}`).reset();
-        alert(`Acabas de agregar al carrito ${metros} ${productosCargados[index].unidad} de ${productosCargados[index].nombre}`)
-
-        
-    }
-        
+        alert(`Acabas de agregar al carrito ${metros} ${productosCargados[index].unidad} de ${productosCargados[index].nombre}`)  
+    }   
     
     
 }

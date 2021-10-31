@@ -42,5 +42,9 @@ if (localStorage.getItem("totalCompra") != null ) {
         `;
         localStorage.removeItem('totalCompra')
 }
+$("#finalizar").click(()=> {
+    finalizarCompra()
+})
+
 console.log(precioTotal)
 imprimirProducto()
