@@ -9,11 +9,12 @@ const imprimirProducto = () => {
         totalCompra = obj.metros * obj.precio 
         precioTotal = precioTotal + totalCompra
         document.getElementById("carrito").innerHTML+=`
-        <aritcle class="col-lg-3 py-3 col-md-6">
+        <aritcle class="col-lg-3 py-3 col-md-6 carrito">
         <h3 class="productos3D__tittle--whiteSmoke text-center">${obj.nombre}</h3>
         <img src="img/${obj.nombre}.jpg" alt="Modelo 3D de placas antihumedad burbuja" class="w-100 h-75">
         <h5 class="card-title text-center"><span class="badge rounded-pill bg-success">compro ${obj.metros} ${obj.unidad} de ${obj.nombre} </span></h5>
         <h5 class="card-title text-center"><span class="badge rounded-pill bg-success">$${totalCompra}</span></h5>
+        <article/>
         `;
         
     }); 
@@ -28,22 +29,25 @@ const finalizarCompra = () => {
         if(opc == true){
             localStorage.removeItem('carrito')
             window.location.reload()
+            $(".total").slideDown(5000)
         }
         
     } 
 }
 if (localStorage.getItem("totalCompra") != null ) {
     document.getElementById("carrito").innerHTML+=`
-        <aritcle class="row justify-content-center">
-        <div class="col-auto">
-            <h3 class="productos3D__tittle--whiteSmoke text-center">COMPRA FINALIZADA</h3>
-            <h5 class="card-title text-center"><span class="badge rounded-pill bg-success">Usted gasto $${JSON.parse(localStorage.getItem("totalCompra"))}</span></h5>
-        <div/>
+        <aritcle class="row justify-content-center total">
+            <div class="col-auto">
+                <h3 class="productos3D__tittle--whiteSmoke text-center">COMPRA FINALIZADA</h3>
+                <h5 class="card-title text-center"><span class="badge rounded-pill bg-success">Usted gasto $${JSON.parse(localStorage.getItem("totalCompra"))}</span></h5>
+            <div/>
+        <article/>
         `;
         localStorage.removeItem('totalCompra')
 }
 $("#finalizar").click(()=> {
     finalizarCompra()
+   
 })
 
 console.log(precioTotal)

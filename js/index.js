@@ -1,3 +1,4 @@
+
 class Productos {
     constructor (nombre,modelo,precio,metros,unidad){
         this.nombre = nombre,
@@ -32,20 +33,40 @@ productosCargados.push(producto)
 var producto = new Productos("PINTURA LATEX","prod-adicionales",700,0,"lata/latas")
 productosCargados.push(producto)
 
+
+var dolar = 0
+const url = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
+$.get(url, (data, estado) => {
+    if (estado == "success") {
+        data.forEach(e => {
+            if( e.casa.nombre === "Dolar Blue"){
+                dolar = e.casa.compra
+                dolar = parseFloat(dolar)
+                localStorage.setItem("DOLAR", JSON.stringify(dolar))
+                
+            }
+        })
+    }
+})
+console.log(dolar)
+
+
+
 const imprimirProducto = () => {
     productosCargados.forEach(obj =>{
         let index = productosCargados.indexOf(obj)
         idSeleccionado = obj.modelo
         document.getElementById(idSeleccionado).innerHTML += `
-        <aritcle class="col-lg-3 py-3 col-md-6">
-        <h3 class="productos3D__tittle--whiteSmoke text-center">${obj.nombre}  <span class="badge rounded-pill bg-success"> $${obj.precio}</span></h3>
-        <img src="img/${obj.nombre}.jpg" alt="Modelo 3D de placas antihumedad burbuja" class="w-100 h-75">
+        <aritcle class="col-lg-3 py-3 col-md-6 ">
+        <h3 class="productos3D__tittle--whiteSmoke text-center titu">${obj.nombre}  <span class="badge rounded-pill bg-success precio" >${localStorage.getItem("dolar")}</span></h3>
+        <img src="img/${obj.nombre}.jpg" alt="Modelo 3D de placas antihumedad burbuja" class="w-100 h-75 ">
         <div class="w-100">
             <form action="" id="miForm${index}">
                 <input type="number" placeholder="Cantidad" class="w-100 mt-3" id="cant${index}">
                 <button id="bg-perzonalizado" type="button" class="btn btn-info w-100 mt-1 " onclick="ComprarProducto(${index})">Comprar</button>
             </form>
         </div>
+        <article/>
         `;
     }); 
 }
@@ -74,6 +95,7 @@ const ComprarProducto = (index) =>{
     
 }
 imprimirProducto()
+
 console.log("hola hola");
 
 
