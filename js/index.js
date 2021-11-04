@@ -32,33 +32,71 @@ var producto = new Productos("YESO SELENITA","prod-adicionales",700,0,"bolsa/bol
 productosCargados.push(producto)
 var producto = new Productos("PINTURA LATEX","prod-adicionales",700,0,"lata/latas")
 productosCargados.push(producto)
+function round(num) {
+    var m = Number((Math.abs(num) * 100).toPrecision(15));
+    return Math.round(m) / 100 * Math.sign(num);
+}
+$("#btn-dolar").click(()=> {
+    var dolar = 0
+    const url = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
+    $.get(url, (data, estado) => {
+        if (estado == "success") {
+            data.forEach(e => {
+                if( e.casa.nombre === "Dolar Blue"){
+                    dolar = e.casa.compra
+                    dolar = parseFloat(dolar)
+                    console.log(dolar)
+                    if (document.getElementById("btn-dolar").textContent == "Precio en dolar") {
+                        productosCargados.forEach(obj => {
+                            let index = productosCargados.indexOf(obj)
+                            let valorDolar = obj.precio / dolar
+                            valorDolar = round(valorDolar)
+                            $(`#${index}`).text("US$" + valorDolar)
+                        });
+                        $("#btn-dolar").text("Precio en pesos")
+                    }
+                    else{
+                        productosCargados.forEach(obj => {
+                            let index = productosCargados.indexOf(obj)
+                            
+                            $(`#${index}`).text("$" + obj.precio)
+                        });
+                        $("#btn-dolar").text("Precio en dolar")
 
-
-var dolar = 0
-const url = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
-$.get(url, (data, estado) => {
-    if (estado == "success") {
-        data.forEach(e => {
-            if( e.casa.nombre === "Dolar Blue"){
-                dolar = e.casa.compra
-                dolar = parseFloat(dolar)
-                localStorage.setItem("DOLAR", JSON.stringify(dolar))
-                
-            }
-        })
-    }
+                    }
+                    
+                    
+                }
+            })
+        }
+    })
+       
+   
 })
-console.log(dolar)
+
+
 
 
 
 const imprimirProducto = () => {
+    let i = 0;
     productosCargados.forEach(obj =>{
+        if (localStorage.getItem("productos") == null ) {
+            productos2 = []
+        }
+        else{
+            productos2 = JSON.parse(localStorage.getItem("productos"))
+        }
+        productos2.push(productosCargados[i])
+        console.log(productosCargados[i])
+        localStorage.setItem("productos", JSON.stringify(productos2))
         let index = productosCargados.indexOf(obj)
+        i = i + 1
+        console.log(i)
         idSeleccionado = obj.modelo
         document.getElementById(idSeleccionado).innerHTML += `
         <aritcle class="col-lg-3 py-3 col-md-6 ">
-        <h3 class="productos3D__tittle--whiteSmoke text-center titu">${obj.nombre}  <span class="badge rounded-pill bg-success precio" >${localStorage.getItem("dolar")}</span></h3>
+        <h3 class="productos3D__tittle--whiteSmoke text-center titu">${obj.nombre}  <span class="badge rounded-pill bg-success precio" id="${index}" >$${obj.precio}</span></h3>
         <img src="img/${obj.nombre}.jpg" alt="Modelo 3D de placas antihumedad burbuja" class="w-100 h-75 ">
         <div class="w-100">
             <form action="" id="miForm${index}">

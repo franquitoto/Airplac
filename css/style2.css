@@ -69,3 +69,13 @@ div ul li a{
 	text-align: left;
 	font-family: 'Dosis', sans-serif;
 }
+@media (max-width: 1630px){
+	#btn-dolar{
+		left: 20;
+	}
+}
+#btn-dolar{
+	position: fixed;
+	top: 150px;
+	left: 30px;
+}
