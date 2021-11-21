@@ -11,6 +11,7 @@ let totalCompra;
 
 // Funcion para imprimir un producto desde el carrito
 const imprimirProducto = () => {
+    document.getElementById("carritoImg").style.display = "none"
     carrito.forEach(obj =>{
         let totalCompra = 0;
         totalCompra = obj.metros * obj.precio 
@@ -73,10 +74,12 @@ const imprimirProducto = () => {
         
     }); 
 }
+// Funcion para finalizar la compra
 const finalizarCompra = () => {
     localStorage.setItem("totalCompra", JSON.stringify(precioTotal))
     if (localStorage.getItem("carrito") == null ) {
         alert("No tiene ninngun elemento en el carrito");
+        
     }
     else{
         let opc = true 
@@ -88,21 +91,60 @@ const finalizarCompra = () => {
         
     } 
 }
-if (localStorage.getItem("totalCompra") != null ) {
-    document.getElementById("carrito").innerHTML+=`
-        <aritcle class="row justify-content-center total">
-            <div class="col-auto">
-                <h3 class="productos3D__tittle--whiteSmoke text-center">COMPRA FINALIZADA</h3>
-                <h5 class="card-title text-center"><span class="badge rounded-pill bg-success">Usted gasto $${JSON.parse(localStorage.getItem("totalCompra"))}</span></h5>
-            <div/>
-        <article/>
-        `;
-        localStorage.removeItem('totalCompra')
-}
-$("#finalizar").click(()=> {
-    finalizarCompra()
-   
-})
+// Funcuion para imprimir el total
+const imprimirTotal = () => {
+    if (localStorage.getItem("totalCompra") != null ) { 
+        // Declaramos un article
+        const article2 = document.createElement("article")
+        article2.setAttribute("class","row justify-content-center total")
 
-console.log(precioTotal)
-imprimirProducto()
+        //Declaramos un div
+        const div2 = document.createElement("div")
+        div2.setAttribute("class","col-auto")
+
+        // Declaramos un h3 para el titulo del total
+        const titulo = document.createElement("h3")
+        titulo.setAttribute("class","productos3D__tittle--whiteSmoke text-center")
+        let contentTitulo = "COMPRA FINALIZADA"
+        titulo.textContent = contentTitulo
+        div2.appendChild(titulo)
+
+        // Declaramos un h5 para mostrar el total
+        const mostrarTotal = document.createElement("h5")
+        mostrarTotal.setAttribute("class","card-title text-center")
+
+        // Declaramos un span para resaltar el total
+        const spanTotal = document.createElement("span")
+        spanTotal.setAttribute("class","badge rounded-pill bg-success")
+        let contenSpanTotal = `Usted gasto $${JSON.parse(localStorage.getItem("totalCompra"))}`
+        spanTotal.textContent = contenSpanTotal
+        mostrarTotal.appendChild(spanTotal)
+        div2.appendChild(mostrarTotal)
+        article2.appendChild(div2)
+
+        // Mostramos todo lo que construimos
+        document.getElementById("carrito").appendChild(article2)
+        /*
+        document.getElementById("carrito").innerHTML+=`
+            <aritcle class="row justify-content-center total">
+                <div class="col-auto">
+                    <h3 class="productos3D__tittle--whiteSmoke text-center">COMPRA FINALIZADA</h3>
+                    <h5 class="card-title text-center"><span class="badge rounded-pill bg-success">Usted gasto $${JSON.parse(localStorage.getItem("totalCompra"))}</span></h5>
+                <div/>
+            <article/>
+            `*/;
+            localStorage.removeItem('totalCompra')
+    }
+}
+
+/* Programa */
+if(localStorage.getItem("totalCompra") != null ){
+    imprimirTotal()
+}
+else{
+    imprimirProducto()
+}
+
+$("#finalizar").click(()=> {
+    finalizarCompra() 
+})
