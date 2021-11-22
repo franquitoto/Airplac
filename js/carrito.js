@@ -1,6 +1,7 @@
 
-// Declaramos el carrito en el localstorage
+// Traemos del localstorage la info del carrito
 carrito = JSON.parse(localStorage.getItem("carrito"))
+
 
 // Declaramos algunas variables utiles
 let precioTotal = 0;
@@ -11,7 +12,6 @@ let totalCompra;
 
 // Funcion para imprimir un producto desde el carrito
 const imprimirProducto = () => {
-    document.getElementById("carritoImg").style.display = "none"
     carrito.forEach(obj =>{
         let totalCompra = 0;
         totalCompra = obj.metros * obj.precio 
@@ -84,7 +84,6 @@ const finalizarCompra = () => {
     else{
         let opc = true 
         if(opc == true){
-            localStorage.removeItem('carrito')
             window.location.reload()
             $(".total").slideDown(5000)
         }
@@ -93,7 +92,71 @@ const finalizarCompra = () => {
 }
 // Funcuion para imprimir el total
 const imprimirTotal = () => {
+    
     if (localStorage.getItem("totalCompra") != null ) { 
+        let i = 1
+       const table = document.createElement("table")
+       table.setAttribute("class","table table-dark")
+       
+
+       const thead = document.createElement("thead")
+       thead.setAttribute("id","table1")
+       const tr = document.createElement("tr")
+       const th = document.createElement("th")
+       th.setAttribute("scope","col")
+       th.textContent = "#"
+
+       const th1 = document.createElement("th")
+       th1.setAttribute("scope","col")
+       th1.textContent = "Modelo / Producto"
+
+       const th2 = document.createElement("th")
+       th2.setAttribute("scope","col")
+       th2.textContent = "Metros / Cantidad"
+
+       const th3 = document.createElement("th")
+       th3.setAttribute("scope","col")
+       th3.textContent = "Precio x unidad"
+
+       tr.appendChild(th)
+       tr.appendChild(th1)
+       tr.appendChild(th2)
+       tr.appendChild(th3)
+       thead.appendChild(tr)
+
+       tbody = document.createElement("tbody")
+       thead.appendChild(tbody)
+       table.appendChild(thead)
+
+       document.getElementById("carrito").appendChild(table)
+
+
+        carrito.forEach(obj => {
+            //Cremos las filas dinamicas que se van a ir inyecyando
+            // Creamos una tr para encapsular las td
+            
+            const tr2 = document.createElement("tr")
+            const th4 = document.createElement("th")
+            th4.setAttribute("scope","row")
+            th4.textContent = `${i}`
+            tr2.appendChild(th4)
+
+            // Creados las td dinamicas
+            const td = document.createElement("td")
+            td.textContent = `${obj.nombre}`
+            tr2.appendChild(td)
+
+            const td1 = document.createElement("td")
+            td1.textContent = `${obj.metros}`
+            tr2.appendChild(td1)
+
+            const td2 = document.createElement("td")
+            td2.textContent = `${obj.precio}`
+            tr2.appendChild(td2)
+
+            document.getElementById("table1").appendChild(tr2)
+            i = i + 1;
+        });
         // Declaramos un article
         const article2 = document.createElement("article")
         article2.setAttribute("class","row justify-content-center total")
@@ -124,25 +187,24 @@ const imprimirTotal = () => {
 
         // Mostramos todo lo que construimos
         document.getElementById("carrito").appendChild(article2)
-        /*
-        document.getElementById("carrito").innerHTML+=`
-            <aritcle class="row justify-content-center total">
-                <div class="col-auto">
-                    <h3 class="productos3D__tittle--whiteSmoke text-center">COMPRA FINALIZADA</h3>
-                    <h5 class="card-title text-center"><span class="badge rounded-pill bg-success">Usted gasto $${JSON.parse(localStorage.getItem("totalCompra"))}</span></h5>
-                <div/>
-            <article/>
-            `*/;
-            localStorage.removeItem('totalCompra')
+        localStorage.removeItem('totalCompra')
+        localStorage.removeItem("carrito")
     }
 }
 
 /* Programa */
 if(localStorage.getItem("totalCompra") != null ){
+    document.getElementById("carritoImg").style.display = "none"
     imprimirTotal()
 }
 else{
-    imprimirProducto()
+    if (localStorage.getItem("carrito") == null) {
+        document.getElementById("carritoImg").style.display = "block"
+    }else{
+        document.getElementById("carritoImg").style.display = "none"
+        imprimirProducto()
+    }
+    
 }
 
 $("#finalizar").click(()=> {
