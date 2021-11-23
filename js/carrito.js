@@ -12,6 +12,7 @@ let totalCompra;
 
 // Funcion para imprimir un producto desde el carrito
 const imprimirProducto = () => {
+    document.getElementById("finalizar").style.display = "block"
     carrito.forEach(obj =>{
         let totalCompra = 0;
         totalCompra = obj.metros * obj.precio 
