@@ -3,6 +3,11 @@ var verificacion = false
 
 /* Comienzan las principales funciones */
 // Funcion para mostrar la cantidad de inputs necesarios
+// Funcion para redondear a 2 decimales
+function round(num) {
+    var m = Number((Math.abs(num) * 100).toPrecision(15));
+    return Math.round(m) / 100 * Math.sign(num);
+}
 const mostrarIputs = () => {
     document.getElementById("div1").style.display = "none"
     
@@ -34,7 +39,11 @@ const mostrarIputs = () => {
 
 // Funcion para imprimir los materiales necesarios
 const imprimirResultado = (m2) => {
+    m2 = round(m2)
     let cantBolsas = m2 / 10
+    let kilosMasilla = m2 / 5
+    kilosMasilla = round(kilosMasilla)
+    cantBolsas = round(cantBolsas)
     let tr = document.createElement("tr")
     let th = document.createElement("th")
     th.setAttribute("scope","row")
@@ -45,11 +54,14 @@ const imprimirResultado = (m2) => {
     td1.textContent = `${cantBolsas}`
     let td2 = document.createElement("td")
     td2.textContent = `${cantBolsas}`
+    let td3 = document.createElement("td")
+    td3.textContent = `${kilosMasilla}`
 
     tr.appendChild(th)
     tr.appendChild(td)
     tr.appendChild(td1)
     tr.appendChild(td2)
+    tr.append(td3)
 
     document.getElementById("table1").appendChild(tr)
 }
@@ -77,10 +89,15 @@ const imprimirTabla = () => {
     th3.setAttribute("scope","col")
     th3.textContent = "Litros de pintura"
 
+    let th4 = document.createElement("th")
+    th4.setAttribute("scope","col")
+    th4.textContent = "Kilos de masilla"
+
     tr.appendChild(th)
     tr.appendChild(th1)
     tr.appendChild(th2)
     tr.appendChild(th3)
+    tr.appendChild(th4)
     thead.append(tr)
     table.append(thead)
     
